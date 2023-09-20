@@ -15,6 +15,7 @@ namespace Dice_Game
             string outcome;
             bool valid;
             Die die1 = new Die();
+            System.Threading.Thread.Sleep(1000);
             Die die2 = new Die();
             while (money != 0)
             {
@@ -49,8 +50,10 @@ namespace Dice_Game
                         case "doubles":
                             valid = true;
                             die1.RollDie();
+                            Console.WriteLine($"You rolled a {die1}");
                             die1.DrawDie();
                             die2.RollDie();
+                            Console.WriteLine($"You rolled a {die2}");
                             die2.DrawDie();
                             if (die1.Roll == die2.Roll)
                             {
@@ -64,8 +67,10 @@ namespace Dice_Game
                         case "not double":
                             valid = true;
                             die1.RollDie();
+                            Console.WriteLine($"You rolled a {die1}");
                             die1.DrawDie();
                             die2.RollDie();
+                            Console.WriteLine($"You rolled a {die2}");
                             die2.DrawDie();
                             if (die1.Roll != die2.Roll)
                             {
@@ -79,8 +84,10 @@ namespace Dice_Game
                         case "even sum":
                             valid = true;
                             die1.RollDie();
+                            Console.WriteLine($"You rolled a {die1}");
                             die1.DrawDie();
                             die2.RollDie();
+                            Console.WriteLine($"You rolled a {die2}");
                             die2.DrawDie();
                             if ((die1.Roll + die2.Roll) % 2 == 0)
                             {
@@ -94,8 +101,10 @@ namespace Dice_Game
                         case "odd sum":
                             valid = true;
                             die1.RollDie();
+                            Console.WriteLine($"You rolled a {die1}");
                             die1.DrawDie();
                             die2.RollDie();
+                            Console.WriteLine($"You rolled a {die2}");
                             die2.DrawDie();
                             if ((die1.Roll + die2.Roll) % 2 != 0)
                             {
@@ -112,7 +121,6 @@ namespace Dice_Game
                     }
                 }
             }
-            Console.Clear();
             Console.WriteLine("You are now broke, try gamble responsibly in the future!");
             System.Threading.Thread.Sleep(5000);
             Environment.Exit(0);
