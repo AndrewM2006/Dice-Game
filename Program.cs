@@ -12,7 +12,7 @@ namespace Dice_Game
         static void Main(string[] args)
         {
             double money = 100, bet;
-            string outcome;
+            string outcome, quit;
             bool valid;
             Die die1 = new Die();
             System.Threading.Thread.Sleep(1000);
@@ -20,6 +20,25 @@ namespace Dice_Game
             while (money != 0)
             {
                 Console.WriteLine($"You Currently Have {money.ToString("C")} Remaining");
+                valid = false;
+                while(!valid)
+                {
+                    Console.WriteLine("Do You Want to Quit? (y/n)");
+                    quit = Console.ReadLine().ToLower();
+                    if (quit == "y")
+                    {
+                        Environment.Exit(0);
+                    }
+                    else if (quit != "n")
+                    {
+                        Console.WriteLine("Enter either a y or n");
+                    }
+                    else
+                    {
+                        valid = true;
+                    }
+                }
+                valid = false;
                 Console.Write("Enter Your Bet Amount: $");
                 if (Double.TryParse(Console.ReadLine(), out bet))
                 {
@@ -37,7 +56,7 @@ namespace Dice_Game
                     bet = 0;
                 }
                 valid = false;
-                while (valid == false)
+                while (!valid)
                 {
                     Console.WriteLine("Choose an outcome to bet on...");
                     Console.WriteLine("Doubles: Win double your bet (2x). ex. Bet is $5, user wins $10 for a total of $110");
